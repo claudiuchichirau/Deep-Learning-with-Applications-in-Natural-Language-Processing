@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Association Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Word Association Game</h1>
+        <p>Runda {{ current }} din {{ total }}</p>
+        <p>Scrie un cuvant asemanator semantic cu: <strong>{{ base_word }}</strong></p>
+
+        <form method="POST">
+            <input type="text" name="user_word" placeholder="Introdu cuvântul tău..." required>
+            <button type="submit">Trimite</button>
+        </form>
+
+        {% if feedback %}
+        <div class="feedback">
+            <p>{{ feedback }}</p>
+            {% if round_score is not none %}
+            <p>Scor runda: <strong>{{ round_score }}</strong></p>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="scoreboard">
+            <p>Scor total: <strong>{{ score_total }}</strong></p>
+        </div>
+    </div>
+</body>
+</html>

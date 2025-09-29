@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezultatul jocului</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="text-align: center;">
+        <h1 class="result-title" data-color="{{ color }}">{{ message }} - Rezultatul tau final</h1>
+        <p>Scor total: <strong>{{ score_total }}</strong> / 500</p>
+        <h2>{{ message }}</h2>
+
+        <form action="/" method="GET">
+            <button type="submit" class="restart">Start again</button>
+        </form>
+    </div>
+
+<script>
+    const title = document.querySelector('.result-title');
+    title.style.color = title.getAttribute('data-color');
+</script>
+</body>
+</html>
